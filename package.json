@@ -1,0 +1,22 @@
+{
+  "name": "encurter-backend",
+  "version": "1.0.0",
+  "description": "back end do app encurter",
+  "main": "index.js",
+  "repository": "https://github.com/luccasalves/encurter-backend",
+  "author": "Lucas Alves <as.lucasalves@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "pg": "^8.7.1"
+  }
+}
