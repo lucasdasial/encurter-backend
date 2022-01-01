@@ -13,9 +13,11 @@ exports.postLogin = (req, res) => {
       ])
       .then((result) => {
         if (result.rowCount > 0) {
+          console.log(result.rows[0].id_user)
           res.send({
             authenticated: true,
             user: result.rows[0].login,
+            userId: result.rows[0].id_user
           });
         } else {
           res.send({ authenticated: false });
