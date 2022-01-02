@@ -24,3 +24,11 @@ exports.postUrl = (req, res) => {
     }
   );
 };
+
+exports.getMyUrls = (req, res)=>{
+  const userId = req.body.userId;
+
+  const query = "SELECt url_complete, url_short FROM tbl_urls WHERE id_user = $1"
+
+  db.query(query,[userId]).then(result => res.send(result.rows))
+}

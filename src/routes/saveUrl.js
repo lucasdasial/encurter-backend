@@ -1,11 +1,9 @@
 const router = require("express").Router();
 const saveUrlController = require("../controllers/saveUrlCrontroller");
 
-router.get("/", (req, res) => {
-  res.send("rota de save");
-});
+router.post("/get", saveUrlController.getMyUrls);
 
 
-router.post("/", saveUrlController.postUrl);
+router.post("/save", saveUrlController.postUrl);
 
 module.exports = router;

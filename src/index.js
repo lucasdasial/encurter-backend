@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 // rotas
 app.use("/register", register);
 app.use("/login", login);
-app.use("/save-url", saveUrl);
+app.use("/url", saveUrl);
 
 app.listen(port, () => {
   console.log(`Rodando em localhost:${port}`);
