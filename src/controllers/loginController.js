@@ -4,7 +4,8 @@ exports.postLogin = (req, res) => {
   const $login = req.body.login;
   const $pass = req.body.password;
 
-  async function login() {
+  (async function login() {
+    
     await db
       .query("SELECT * FROM tbl_users WHERE login = $1 AND pass = $2", [
         $login,
@@ -12,7 +13,11 @@ exports.postLogin = (req, res) => {
       ])
       .then((result) => {
         if (result.rowCount > 0) {
-          res.send({ authenticated: true });
+          res.send({
+            authenticated: true,
+            user: result.rows[0].login,
+            userId: result.rows[0].id_user
+          });
         } else {
           res.send({ authenticated: false });
         }
@@ -21,7 +26,5 @@ exports.postLogin = (req, res) => {
         res.send(err.message);
         console.log(err.message);
       });
-  }
-
-  login();
+  })();
 };
