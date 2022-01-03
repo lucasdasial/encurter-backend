@@ -8,7 +8,7 @@ const corsConfig = {
 };
 const register = require("./routes/register");
 const login = require("./routes/login");
-const saveUrl = require("./routes/saveUrl");
+const url = require("./routes/url");
 
 // inicialização do serviço
 const app = express();
@@ -21,6 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 // rotas
 app.use("/register", register);
 app.use("/login", login);
-app.use("/url", saveUrl);
+app.use("/url", url);
 
 module.exports = app;

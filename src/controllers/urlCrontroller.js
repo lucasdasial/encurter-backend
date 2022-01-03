@@ -25,10 +25,19 @@ exports.postUrl = (req, res) => {
   );
 };
 
-exports.getMyUrls = (req, res)=>{
+exports.getMyUrls = (req, res) => {
   const userId = req.body.userId;
 
-  const query = "SELECt url_complete, url_short FROM tbl_urls WHERE id_user = $1"
+  const query =
+    "SELECT id_url, url_complete, url_short FROM tbl_urls WHERE id_user = $1";
 
-  db.query(query,[userId]).then(result => res.send(result.rows))
-}
+  db.query(query, [userId]).then((result) => res.send(result.rows));
+};
+
+exports.deleteUrl = (req, res) => {
+  const urlId = req.body.idUrl;
+
+  const query = "DELETE FROM tbl_urls WHERE id_url = $1";
+  db.query(query, [urlId]);
+  res.send({ deleted: true });
+};
